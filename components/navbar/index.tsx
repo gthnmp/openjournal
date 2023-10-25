@@ -8,8 +8,15 @@ const supabase: SupabaseClient = createClient(process.env.NEXT_PUBLIC_SUPABASE_U
 
 export default function Navbar() {
   const [showModal, setModalState] = useState(false);
+  const [modalMode, setModalMode] = useState<"LOGIN" | "REGISTER">("LOGIN")
 
-  const openModal = () => {
+  const openLoginModal = () => {
+    setModalMode("LOGIN");
+    setModalState(true);
+  };
+
+  const openRegisterModal = () => {
+    setModalMode("REGISTER");
     setModalState(true);
   };
 
@@ -25,15 +32,15 @@ export default function Navbar() {
             <Link href="/">Write</Link>
           </li>
           <li>
-            <button onClick={openModal}>Sign In</button>
+            <button onClick={openLoginModal}>Sign In</button>
           </li>
           <li className="text-white bg-black rounded-3xl py-2 px-4 font-normal select-none">
-            <button onClick={openModal}>Get Started</button>
+            <button onClick={openRegisterModal}>Get Started</button>
           </li>
         </ul>
       </nav>
       {showModal && (
-        <AuthModal setModalState={setModalState} />
+        <AuthModal setModalState={setModalState} modalMode={modalMode} />
       )}
     </>
   );
