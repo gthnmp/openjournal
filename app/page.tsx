@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Navbar/>
-      <main className="w-screen min-h-screen">
+      <main className="w-screen min-h-screen pt-20">
         <header className="w-full h-[30rem] bg-yellow-400 border-b-[1px] border-black">
           <div className="w-1/2 h-full grid place-items-center px-24">
             <div className="flex flex-col gap-6 font-sans text-xl">
