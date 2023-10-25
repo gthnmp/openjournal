@@ -1,0 +1,11 @@
+.auth-modal {
+  animation: auth-modal-entrance 250ms;
+}
+
+@keyframes auth-modal-entrance {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
