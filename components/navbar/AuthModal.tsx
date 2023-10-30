@@ -4,9 +4,15 @@ import {AiOutlineClose} from 'react-icons/ai'
 import {FcGoogle} from 'react-icons/fc'
 import {GoMail} from 'react-icons/go' 
 
+import { supabase } from "../utils";
+
 interface AutoModalProps {
   setModalState : React.Dispatch<React.SetStateAction<boolean>> 
   modalMode : "LOGIN" | "REGISTER"
+}
+
+const googleSignIn = async() => {
+  const {session, error} = supabase.auth.signInWithOAuth({provider:"google"})
 }
 
 export default function AuthModal ({setModalState, modalMode} : AutoModalProps) {
